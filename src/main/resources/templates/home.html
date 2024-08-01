@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>GST Value - Tax Tracker</title>
+    <title>Home - Tax Tracker</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
@@ -19,16 +19,15 @@
 
         <!-- Home Icon -->
         <div class="menu-item icon">
-            <a href="/">Home</a> <!-- Link to the home page -->
+            <a href="#">Home</a> <!-- This can be left empty or updated with a URL if needed -->
         </div>
     </div>
 
     <!-- Main Content -->
     <div class="content">
-        <h1>Current GST Rate</h1>
-        <p>GST: <span th:text="${gst}">0.0</span>%</p>
-        <!-- Link to Home Page -->
-        <p><a href="/">Back to Home</a></p>
+        <h1>Welcome to Tax Tracker!!!</h1>
+        <p><a href="/gst">View Current GST Rate</a></p>
+        <p><a href="/calculate">Calculate GST Rate</a></p>
     </div>
 </body>
 </html>

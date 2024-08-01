@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Calculate Total Amount - Tax Tracker</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <!-- Logout Icon -->
+        <div class="menu-item icon">
+            <a href="#">Logout</a> <!-- Update the href attribute to your logout URL -->
+        </div>
+
+        <!-- Application Name -->
+        <div class="logo">
+            TaxTracker
+        </div>
+
+        <!-- Home Icon -->
+        <div class="menu-item icon">
+            <a href="/">Home</a> <!-- Link to the home page -->
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Calculate Total Amount</h1>
+        <form action="/calculate" method="post">
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" step="0.01" required>
+            <br>
+            <label for="countryCode">Country Code:</label>
+            <input type="text" id="countryCode" name="countryCode" required>
+            <br>
+            <button type="submit">Calculate</button>
+             <p><a href="/">Back to Home</a></p>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let form = event.target;
+            let formData = new FormData(form);
+            fetch(form.action, {
+                method: form.method,
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = 'Total Amount: ' + data;
+            });
+        });
+    </script>
+</body>
+</html>
