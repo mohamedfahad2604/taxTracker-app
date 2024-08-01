@@ -2,21 +2,24 @@ package com.gst.taxTracker.taxTrackerDomain;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "gst")
 public class Gst {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private double gst;
-    private LocalDateTime effectiveFrom;
-    private LocalDateTime effectiveTill;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	 @Column(name = "gst")
+	private double gst;
+	private LocalDateTime effectiveFrom;
+	private LocalDateTime effectiveTill;
 
 	public Long getId() {
 		return id;
@@ -68,9 +71,5 @@ public class Gst {
 		this.effectiveFrom = effectiveFrom;
 		this.effectiveTill = effectiveTill;
 	}
-    
-    
-    
+
 }
-    
-    
